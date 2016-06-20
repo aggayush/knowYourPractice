@@ -1,0 +1,3 @@
+/*
+it is the jquery scripts file for search page
+*/
