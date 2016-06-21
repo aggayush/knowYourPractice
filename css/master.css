@@ -4,22 +4,57 @@ This is the css file for the project.
 
 #header{
 
+width: 100%;
+height: 100%;
+}
+
+.home_text{
+
+  
+}
+
+.search_bar{
+
+width: 800px;
+height: 50px;
+margin-top: 14%;
+margin-bottom: 14%;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
 
 }
 
-#search_bar{
+.select{
 
+-webkit-appearance: menulist-button;
+width: 200px;
+height: 30px;
+background-color: transparent;
 
 }
 
-#search_bar_textbox{
 
+.search_bar_textbox{
+
+width: 300px;
+height: 30px;
+border-radius: 5px;
+border-style: solid;
+border-width: 1px;
+border-color: rgb(166, 166, 166);
 
 }
 
-#search_bar_button{
+.search_bar_button{
 
-
+width: 30px;
+height: 30px;
+background-image: url('../images/ic_search_48px-128.png');
+background-size: 100%;
+background-color: transparent;
+border-color: rgb(166, 166, 166);
+border-width: 1px;
 }
 
 #search_content{
@@ -29,5 +64,5 @@ This is the css file for the project.
 
 #search_content div{
 
-  
+
 }
