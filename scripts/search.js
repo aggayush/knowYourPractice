@@ -121,7 +121,7 @@ function fillNearbyArea(){
 
 function reloadPage(){
 
-  
-
+  //TODO
+  // reload the page with new country
 
 }
