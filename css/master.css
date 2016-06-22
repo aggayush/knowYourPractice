@@ -2,59 +2,82 @@
 This is the css file for the project.
 */
 
+.body{
+  background:rgba(47, 114, 183, 0.49);
+}
+
 #header{
-
-width: 100%;
-height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
-.home_text{
-
-  
+.home_text h1{
+  margin: 0;
+  width: auto;
 }
+
+.home_text select{
+  float: right;
+}
+
+.ui-menu{
+  width: 300px;
+  border-radius: 5px;
+}
+
+.ui-menu .ui-menu-item a {
+    text-decoration: none;
+    display: block;
+    padding: 2px .4em;
+    line-height: 1.5;
+    min-height: 0; /* support: IE7 */
+    font-weight: normal;
+}
+
 
 .search_bar{
 
-width: 800px;
-height: 50px;
-margin-top: 14%;
-margin-bottom: 14%;
-margin-left: auto;
-margin-right: auto;
-text-align: center;
+  width: 800px;
+  height: 50px;
+  margin-top: 14%;
+  margin-bottom: 14%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 
 }
 
 .select{
 
--webkit-appearance: menulist-button;
-width: 200px;
-height: 30px;
-background-color: transparent;
+  -webkit-appearance: menulist-button;
+  width: 200px;
+  height: 30px;
+  background-color: white;
 
 }
 
 
 .search_bar_textbox{
 
-width: 300px;
-height: 30px;
-border-radius: 5px;
-border-style: solid;
-border-width: 1px;
-border-color: rgb(166, 166, 166);
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(166, 166, 166);
 
 }
 
 .search_bar_button{
 
-width: 30px;
-height: 30px;
-background-image: url('../images/ic_search_48px-128.png');
-background-size: 100%;
-background-color: transparent;
-border-color: rgb(166, 166, 166);
-border-width: 1px;
+  width: 30px;
+  height: 30px;
+  background-image: url('../images/ic_search_48px-128.png');
+  background-size: 100%;
+  background-color: white;
+  border-radius: 5px;
+  border-color: rgb(166, 166, 166);
+  border-width: 1px;
 }
 
 #search_content{

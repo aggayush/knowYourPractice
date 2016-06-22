@@ -2,25 +2,29 @@
 	<head>
 		<title> KnowYourPractice </title>
 		<link rel="stylesheet" href="./css/master.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 	</head>
-	<body>
+	<body class="body">
 		<div id="header">
 			<div class="home_text">
 				<h1>KnowYourPractice</h1>
+				<select class="select" name="country_select" onchange="reloadPage()">
+				</select>
 			</div>
-			<div class="search_bar">
 
-				<select class="select" name="city_select" onselect="fillNearbyArea()">
-						<option label="default" value="" disabled selected hidden>Select City
+			<div class="search_bar">
+				<select class="select" name="city_select" onchange="fillNearbyArea()">
+						<option label="default" value="" disabled selected>Select City
 						</option>
 				</select>
 
 				<select class="select" name="nearby_select">
-						<option label="default" value="" disabled selected hidden>Select Nearby Area</option>
+						<option label="default" value="" disabled selected>Select Nearby Area</option>
 				</select>
 
-				<input class="search_bar_textbox" type="text" name="search_bar_textbox" placeholder="Search for practices"/>
+				<input id="searchbar" class="search_bar_textbox" type="text" name="search_bar_textbox" placeholder="Search for practices"/>
 				<input class="search_bar_button" type="button" name="search_bar_button" onclick="searchButtonClick()"/>
 			</div>
 		</div>
