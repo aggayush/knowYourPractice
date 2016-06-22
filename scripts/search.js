@@ -79,6 +79,13 @@ $(document).ready(function(){
   var onFailure = function(){
     console.log("call failed");
   }
+
+  $('#searchbar').keypress(function(e){
+      if(e.keyCode==13){
+        searchButtonClick();
+      }
+  });
+
 });
 
 // it fills the localities options and also enable autocomplete feature
@@ -123,5 +130,20 @@ function reloadPage(){
 
   //TODO
   // reload the page with new country
+
+}
+
+function searchButtonClick(){
+
+  $('#header').css({
+    'height':'10%'
+  });
+  $('#header h1').css('float','left');
+  $('.search_bar').css({
+      "margin-top": "0px",
+      "margin-bottom": "0px"
+  });
+
+  
 
 }
