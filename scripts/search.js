@@ -104,6 +104,8 @@ function fillNearbyArea(){
   })
   .success(function(data){
 
+    var sub_locality = [];
+
     $('[name=nearby_select]')
             .find('option')
             .remove()
@@ -111,6 +113,11 @@ function fillNearbyArea(){
             .append('<option label="default" value="" disabled selected>Select Nearby Area</option>')
 
     $.each(data.localities,function(index,value){
+      sub_locality.push(value);
+    });
+
+    $.uniqueSort(sub_locality);
+    $.each(sub_locality,function(index,value) {
       $('[name=nearby_select]').append($('<option>',{
           value: value,
           text: value
@@ -136,14 +143,147 @@ function reloadPage(){
 function searchButtonClick(){
 
   $('#header').css({
-    'height':'10%'
+    'height':'50px'
   });
   $('#header h1').css('float','left');
   $('.search_bar').css({
       "margin-top": "0px",
       "margin-bottom": "0px"
   });
+  $('#search_content').css({
+    "width": "100%",
+    "heigh": "100%"
+  });
 
-  
+
+// All this code is to be used when api works
+/*
+  var citiName = $("[name=city_select] option:selected").text().toLowerCase();
+
+  var localityName = null;
+  if($("[name=nearby_select]").val() != null)
+    localityName = $("[name=nearby_select]").val().toLowerCase();
+
+  var speciality = $("#searchbar").val().toLowerCase();
+
+  var url = base_url + "search/";
+
+
+  $.ajax({
+
+    type: "GET",
+    dataType: "JSON",
+    url: url,
+    data: {
+      city: citiName,
+      locality: localityName,
+      searchfor: "specialization",
+      speciality: speciality,
+      q: speciality,
+      offset: 10
+    //  near: null
+    },
+    headers: {
+      "X-CLIENT-ID":X_CLIENT_ID,
+      "X-API-KEY":X_API_KEY
+    }
+  })
+  .success(function(data){
+
+     $.each(data.doctors,function(index,value){
+
+      var new_div = $('<div>',{
+        class: "cards",
+        value: value.practice_id
+      });
+
+      new_div.append($('img',{
+        class: "practice_profile",
+        src: value.practice_photos.url
+      }));
+
+      new_div.append($('label',{
+        for: "practice_name",
+        text: value.practice_name
+      }));
+
+      new_div.append($('label',{
+        for: "practice_address",
+        text: value.practice_addres
+
+      }));
+
+      new_div.appendTo('#search_content');
+      //$('#search_content').append(new_div);
+
+//    });
+
+  });
+*/
+
+// dummy results code
+
+  var img_url = "./images/practice_thumb.jpg";
+  var practiceName = "Practice";
+  var practiceAddress = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+  var charges = "Rs xxx";
+  var practiceDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse \
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, \
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
+  for(var i =1; i<=10; ++i){
+
+    var new_div = $('<div>',{
+      class: "cards",
+      value: i,
+      id: "card"+i
+    });
+
+    new_div.appendTo('#search_content');
+    //$('#search_content').append(new_div);
+
+    new_div.append($('<img>',{
+      class: "practice_thumb",
+      src: img_url
+    }));
+
+    new_div.append($('<div>',{
+      class: "pbasic_details",
+      id: "card" + i + "_div1"
+    }));
+
+    new_div.append($('<div>',{
+      class: "pother_details",
+      id:  "card"+ i + "_div2"
+    }));
+
+    $('#card'+i + "_div1").append($('<p>',{
+      for: "practice_name",
+      text: practiceName
+    }));
+
+    $('#card'+i+"_div1").append($('<p>',{
+      for: "practice_address",
+      text: practiceAddress
+
+    }));
+
+    $('#card'+i+"_div2").append($('<p>',{
+
+      for: "practice_charge",
+      text: charges
+
+    }));
+
+    $('#card'+i+"_div2").append($('<p>',{
+
+      for: "pracice_description",
+      text: practiceDescription
+
+    }));
+
+  }
 
 }

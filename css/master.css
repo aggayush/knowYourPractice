@@ -3,17 +3,15 @@ This is the css file for the project.
 */
 
 .body{
-
   margin: 1px;
 }
 
 #header{
+
   width: 100%;
+  overflow: auto;
   height: 100%;
   background:rgba(47, 114, 183, 0.49);
-}
-
-.home_text{
 }
 
 .home_text h1{
@@ -51,7 +49,6 @@ This is the css file for the project.
   height: 50px;
   padding-top: 5px;
   margin-top: 23%;
-  margin-bottom: 23%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -97,7 +94,37 @@ This is the css file for the project.
 
 }
 
-#search_content div{
+.practice_thumb{
 
+  float: left;
+  height: 120px;
+  width: 120px;
 
+}
+
+.pbasic_details{
+
+  float: left;
+  width: 300px;
+  height: 120px;
+}
+
+.pother_details{
+
+  float: left;
+  width: 300px;
+  
+
+}
+
+.cards{
+  width: 800px;
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid black;
 }
