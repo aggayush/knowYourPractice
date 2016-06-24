@@ -140,6 +140,8 @@ function reloadPage(){
 
 }
 
+
+// to display results when searched
 function searchButtonClick(){
 
   $('#header').css({
@@ -289,6 +291,7 @@ function searchButtonClick(){
 
   }
 
+// for pagination
   $('#pagination_list').pagination({
       items: totalCount/itemPerPage,
       itemsonPage: itemPerPage,
