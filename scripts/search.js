@@ -155,6 +155,7 @@ function searchButtonClick(){
     "heigh": "100%"
   });
 
+  $('#search_content').empty();
 
 // All this code is to be used when api works
 /*
@@ -222,18 +223,20 @@ function searchButtonClick(){
 */
 
 // dummy results code
-
+  var totalCount = 50;
+  var currentOffset = 0;
+  var itemPerPage = 10;
   var img_url = "./images/practice_thumb.jpg";
   var practiceName = "Practice";
   var practiceAddress = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-  var charges = "Rs xxx";
+  var charges = "Rs abc";
   var practiceDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\
                             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\
                             Duis aute irure dolor in reprehenderit in voluptate velit esse \
                             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, \
                             sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
-  for(var i =1; i<=10; ++i){
+  for(var i=1; i<=totalCount; ++i){
 
     var new_div = $('<div>',{
       class: "cards",
@@ -285,5 +288,25 @@ function searchButtonClick(){
     }));
 
   }
+
+  $('#pagination_list').pagination({
+      items: totalCount/itemPerPage,
+      itemsonPage: itemPerPage,
+      cssStyle: 'light-theme',
+      onPageClick: function(pageNumber) {
+        var initNumber = (pageNumber - 1)*itemPerPage;
+        $('.cards').hide();
+        for(var i = initNumber + 1; i <= initNumber+itemPerPage; ++i){
+          $('#card'+ i).show();
+        }
+      },
+      onInit: function(){
+        $('.cards').hide();
+        for(var i = 1;i<=itemPerPage;++i){
+          $('#card'+ i).show();
+        }
+      }
+  });
+
 
 }
