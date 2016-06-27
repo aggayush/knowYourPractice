@@ -3,6 +3,7 @@ This is jquery script for the page
 */
 
 var base_url = "https://api.practo.com/";
+var practice_base_url = "https://www-latest.practo.com/saphhire-api/";
 var X_CLIENT_ID = "cb361f8c-cbf3-4ea9-ac2f-76c619a59a82";
 var X_API_KEY = "LXrzokVA14koHb+WKv/4BdRDIpU=";
 
@@ -82,7 +83,7 @@ $(document).ready(function(){
 
   $('#searchbar').keypress(function(e){
       if(e.keyCode==13){
-        searchButtonClick();
+        searchButtonClick(0);
       }
   });
 
@@ -142,7 +143,7 @@ function reloadPage(){
 
 
 // to display results when searched
-function searchButtonClick(){
+function searchButtonClick(pagenumber){
 
   $('#header').css({
     'height':'50px'
@@ -160,7 +161,7 @@ function searchButtonClick(){
   $('#search_content').empty();
 
 // All this code is to be used when api works
-/*
+
   var citiName = $("[name=city_select] option:selected").text().toLowerCase();
 
   var localityName = null;
@@ -169,8 +170,9 @@ function searchButtonClick(){
 
   var speciality = $("#searchbar").val().toLowerCase();
 
-  var url = base_url + "search/";
-
+  var url = practice_base_url + "search/";
+  var totalCount = 0;
+  var itemPerPage = 10;
 
   $.ajax({
 
@@ -182,8 +184,8 @@ function searchButtonClick(){
       locality: localityName,
       searchfor: "specialization",
       speciality: speciality,
-      q: speciality,
-      offset: 10
+    //  q: speciality,
+      offset: pagenumber
     //  near: null
     },
     headers: {
@@ -193,37 +195,82 @@ function searchButtonClick(){
   })
   .success(function(data){
 
+    totalCount = data.doctorsFound;
      $.each(data.doctors,function(index,value){
 
-      var new_div = $('<div>',{
-        class: "cards",
-        value: value.practice_id
-      });
+       var practice_id= value.practice_id;
+       console.log(practice_id);
 
-      new_div.append($('img',{
-        class: "practice_profile",
-        src: value.practice_photos.url
-      }));
+       var practice_url = practice_base_url + "practices/" + practice_id;
+       $.ajax({
+         type: "GET",
+         dataType: "JSON",
+         url: url,
+         headers: {
+           "X-CLIENT-ID":X_CLIENT_ID,
+           "X-API-KEY":X_API_KEY
+         }
+       })
+       .success(function(practice_data){
 
-      new_div.append($('label',{
-        for: "practice_name",
-        text: value.practice_name
-      }));
+            var new_div = $('<div>',{
+               class: "cards",
+               value: index,
+               id: "card"+index,
+               onclick: loadProfile(index)
+             });
 
-      new_div.append($('label',{
-        for: "practice_address",
-        text: value.practice_addres
+             new_div.appendTo('#search_content');
+             //$('#search_content').append(new_div);
 
-      }));
+             var img_url = "./images/practice_thumb.jpg";
+             if(practice_data.photos!=null){
+                img_url = practice_data.photos[0].url;
+             }
 
-      new_div.appendTo('#search_content');
-      //$('#search_content').append(new_div);
+             new_div.append($('<img>',{
+               class: "practice_thumb",
+               src: img_url
+             }));
 
-//    });
+             new_div.append($('<div>',{
+               class: "pbasic_details",
+               id: "card" + index + "_div1"
+             }));
 
+             new_div.append($('<div>',{
+               class: "pother_details",
+               id:  "card"+ index + "_div2"
+             }));
+
+             $('#card'+i + "_div1").append($('<p>',{
+               for: "practice_name",
+               text: practice_data.name
+             }));
+
+             $('#card'+i+"_div1").append($('<p>',{
+               for: "practice_address",
+               text: practice_data.street_address
+
+             }));
+
+             $('#card'+i+"_div2").append($('<p>',{
+
+               for: "practice_rating",
+               text: practice_data.clinic_score.avg_clinic_rating
+
+             }));
+
+             $('#card'+i+"_div2").append($('<p>',{
+
+               for: "pracice_description",
+               text: practice_data.website
+
+             }));
+        });
   });
-*/
 
+/*
 // dummy results code
   var totalCount = 50;
   var currentOffset = 0;
@@ -243,7 +290,8 @@ function searchButtonClick(){
     var new_div = $('<div>',{
       class: "cards",
       value: i,
-      id: "card"+i
+      id: "card"+i,
+      onclick: loadProfile(i)
     });
 
     new_div.appendTo('#search_content');
@@ -290,26 +338,31 @@ function searchButtonClick(){
     }));
 
   }
-
+*/
 // for pagination
   $('#pagination_list').pagination({
-      items: totalCount/itemPerPage,
+      items: Math.ceil(totalCount/itemPerPage),
       itemsonPage: itemPerPage,
       cssStyle: 'light-theme',
       onPageClick: function(pageNumber) {
-        var initNumber = (pageNumber - 1)*itemPerPage;
-        $('.cards').hide();
-        for(var i = initNumber + 1; i <= initNumber+itemPerPage; ++i){
-          $('#card'+ i).show();
-        }
-      },
-      onInit: function(){
+      //  var initNumber = (pageNumber - 1)*itemPerPage;
+      //  $('.cards').hide();
+      //  for(var i = initNumber + 1; i <= initNumber+itemPerPage; ++i){
+      //    $('#card'+ i).show();
+      //  }
+        searchButtonClick(pageNumber);
+      }
+  /*    onInit: function(){
         $('.cards').hide();
         for(var i = 1;i<=itemPerPage;++i){
           $('#card'+ i).show();
         }
       }
-  });
+  }*/);
+}
+
+function loadProfile(practiceID){
+
 
 
 }
