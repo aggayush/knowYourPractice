@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/search.css')
+    link(rel='stylesheet', href='https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css')
+    link(rel='stylesheet', href='/stylesheets/simplePagination.css')
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js')
+    script(type='text/javascript', src='/javascripts/jquery.simplePagination.js')
+    script(type='text/javascript', src='https://code.jquery.com/ui/1.11.4/jquery-ui.min.js')
+    script(type='text/javascript', src='/javascripts/jquery.redirect.js')
+    script.
+      var params = {
+        param_city: '#{city}',
+        param_country: '#{country}',
+        param_locality: '#{locality}',
+        param_speciality: '#{speciality}'
+      }
+    script(type='text/javascript', src='/javascripts/searchpage.js')
+  body(class='body')
+    block header
+    block content

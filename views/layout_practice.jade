@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title= name
+    link(rel='stylesheet', href='/stylesheets/practice.css')
+    link(rel='stylesheet', href='https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css')
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js')
+    script(type='text/javascript', src='https://code.jquery.com/ui/1.11.4/jquery-ui.min.js')
+    script(type='text/javascript', src='/javascripts/jquery.redirect.js')
+    script(type='text/javascript', src='http://viralpatel.net/blogs/demo/jquery/jquery.shorten.1.0.js')
+    script.
+      var practice_name= '#{name}'
+      var practice_id= '#{id}'
+    script(type='text/javascript', src='/javascripts/practice.js')
+  body(class='body')
+    block header
+    block content
