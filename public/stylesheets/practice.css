@@ -209,6 +209,17 @@ p{
   border-left: none;
 }
 
+.timings_table td{
+  text-align: center;
+  border-left: 1px solid gray;
+}
+
+.timings_table td:first-child{
+  border-left: none;
+  text-align: center;
+}
+
+
 .doc_pic{
 
   height: 80px;

@@ -1,4 +1,5 @@
 
+
 var practice_profile_url = '/sapphire-api/practices/' + practice_id;
 $('document').ready(function(){
   specificSelect(1);
@@ -84,7 +85,7 @@ $.ajax({
       id: 'day'+i
     }));
   }
-  var days = ['Monday','Tuesday','Wednesday','Thursday','Friday', 'Saturday', 'Sunday'];
+  var days = ['monday','tuesday','wednesday','thursday','friday', 'saturday', 'sunday'];
 
   for(var i=1;i<=7;++i){
     $('#day'+i).append($('<h3>',{
@@ -108,9 +109,18 @@ $.ajax({
 
   $.each(response.timings,function(key,day_value){
 
-    var day_id = $.inArray(days,key);
+    var day_id = $.inArray(key,days)+1;
+    for(var i=1;i<=2;++i){
+      var day_row = $('<tr>');
+      day_row.append($('<td>',{
+        text: day_value['session'+i+'_start_time']
+      }));
+      day_row.append($('<td>',{
+        text: day_value['session'+i+'_end_time']
+      }));
+      $('#day'+day_id+' table').append(day_row);
+    }
 
-    $('#day'+day_id+' table').append($('<tr>'))
 
   });
 
@@ -134,16 +144,10 @@ $.ajax({
       }));
 
       doc_div.append(doc_div_info);
-
       $('.specific3').append(doc_div);
-      // doc_div_info.append($('<p>',{
-      //   text: response.relations[i].
-      // }));
     }
 
   }
-  //if(!$.isEmptyObject(response.timings)){
-  //}
 
 });
 
