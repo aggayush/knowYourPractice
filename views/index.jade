@@ -1,11 +1,14 @@
+// including the layout
 extends layout_homepage
 
 block header
+  // to display the complete header
   div(id='header')
+    // to display to bar content
     div(class='home_text')
       h1(onclick='goToHome()')=title    
       select(class='select', name='country_select', onchange='reloadPage()') 
-        
+    // to display search bar in the middle of page    
     div(class='search_bar')
       select(class='select', name='city_select', onchange='fillNearbyArea()')
         option(label='Select City', disabled, selected) Select City 

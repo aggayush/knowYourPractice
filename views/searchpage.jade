@@ -1,6 +1,7 @@
 extends layout_search
   
 block header
+  // to show header with search bar
   div(id='header')
     div(class='home_text')
       h1(onclick='goToHome()')=title    
@@ -15,5 +16,6 @@ block header
       input(id='searchbar', class='search_bar_textbox', type='text', name='search_bar_textbox', placeholder='Seach for Practices')
       input(class="search_bar_button", type="button", name="search_bar_button", onclick="searchButtonClick(0,true)")
 block content
+  // to show search result and pagination list
   div(id='search_content')
   div(id='pagination_list')

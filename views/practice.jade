@@ -1,10 +1,13 @@
 extends layout_practice
 
+// top header for webpage
 block header
   div(id='header')
     div(class='home_text')
       h1(onclick='goToHome()')=title
       div(class='return_button', onclick='goBack()') Go Back
+      
+// display block for practice details
 block content
   div(class='pageblock')
     div(class='basic_info')
