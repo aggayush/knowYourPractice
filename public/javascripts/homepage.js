@@ -1,8 +1,8 @@
 /*
-This is jquery script for the page
+This is jquery script for the home page
 */
+
 var base_url = "https://api.practo.com/";
-//var practice_base_url = "https://www-latest.practo.com/sapphire-api/";
 var X_CLIENT_ID = "cb361f8c-cbf3-4ea9-ac2f-76c619a59a82";
 var X_API_KEY = "LXrzokVA14koHb+WKv/4BdRDIpU=";
 
@@ -90,6 +90,7 @@ function fillNearbyArea(){
 
   var city_id = $('[name=city_select]').val();
   var url = base_url + "meta/search/cities/" + city_id;
+
 // to get localities for a given city and specialization in that locality.
   $.ajax({
     type: 'GET',

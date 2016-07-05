@@ -1,6 +1,8 @@
 /*
-This is jquery script for the page
+This is jquery script for search result page
 */
+
+
 var base_url = "https://api.practo.com/";
 var X_CLIENT_ID = "cb361f8c-cbf3-4ea9-ac2f-76c619a59a82";
 var X_API_KEY = "LXrzokVA14koHb+WKv/4BdRDIpU=";
@@ -9,6 +11,7 @@ var user_country;
 var country_list = [];
 var citi_list = [];
 var practice_list = [];
+
 // call to get all the cities supported
 $.ajax({
     type: 'GET',
@@ -195,6 +198,7 @@ function searchButtonClick(pagenumber,isFirstCall){
        }
     //   console.log(practice_id);
        var practice_url = "/sapphire-api/" + "practices/" + practice_id;
+       
 // to get practice info from the id obtained in previous query.
        $.ajax({
          type: "GET",

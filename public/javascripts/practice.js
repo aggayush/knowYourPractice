@@ -1,10 +1,15 @@
-
+/*
+This is jquery script for practice detail page
+*/
 
 var practice_profile_url = '/sapphire-api/practices/' + practice_id;
+
+// to show facilities as default selected
 $('document').ready(function(){
   specificSelect(1);
 })
 
+// to get the complete detail for practice
 $.ajax({
   url: practice_profile_url,
   type: 'GET',
@@ -15,7 +20,8 @@ $.ajax({
 })
 .success(function(response){
 
-  console.log(response);
+  //console.log(response);
+
   if(response.photos.length==0){
     $('.thumb_image').attr("src",'/images/practice_thumb.jpg');
   }
@@ -30,11 +36,9 @@ $.ajax({
 
   $('.basic_info1 h3').text(response.name);
 
-
   $('.info_address').append($('<p>',{
     text: response.street_address
   }));
-
 
   if(!response.hasOwnProperty('website')){
     $('.info_email').append($('<p>',{
@@ -139,6 +143,7 @@ $.ajax({
       var doc_div_info = $('<div>',{
                           class: 'doc_div_info'
                         });
+                        
       doc_div_info.append($('<p>',{
         text: response.relations[i].doctor.name
       }));
@@ -151,8 +156,7 @@ $.ajax({
 
 });
 
-
-
+// to display the selected specification content
 function specificSelect(tab_number){
 
   for(var i=1;i<=3;++i){
