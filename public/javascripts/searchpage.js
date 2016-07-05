@@ -206,7 +206,7 @@ function searchButtonClick(pagenumber,isFirstCall){
          url: practice_url
        })
        .success(function(practice_data){
-            console.log(practice_data);
+            //console.log(practice_data);
             var new_div = $('<div>',{
                class: "cards",
                value: index,
