@@ -4,8 +4,8 @@ This is jquery script for search result page
 
 
 var base_url = "https://api.practo.com/";
-var X_CLIENT_ID = "cb361f8c-cbf3-4ea9-ac2f-76c619a59a82";
-var X_API_KEY = "LXrzokVA14koHb+WKv/4BdRDIpU=";
+var X_CLIENT_ID = "client_id";
+var X_API_KEY = "api_key";
 var citi_url = base_url + "meta/search/cities";
 var user_country;
 var country_list = [];
