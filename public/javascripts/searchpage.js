@@ -152,8 +152,6 @@ function searchButtonClick(pagenumber,isFirstCall){
 
   $('#search_content').empty();
 
-// All this code is to be used when api works
-
   var citiName = $("[name=city_select] option:selected").text().toLowerCase();
   var localityName = null;
   if($("[name=nearby_select]").val() != null){
