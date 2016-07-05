@@ -150,4 +150,5 @@ This is the css file for the project.
   border-radius: 5px;
   padding: 10px;
   border: 1px solid black;
+  cursor: pointer;
 }

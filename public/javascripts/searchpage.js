@@ -198,7 +198,7 @@ function searchButtonClick(pagenumber,isFirstCall){
        }
     //   console.log(practice_id);
        var practice_url = "/sapphire-api/" + "practices/" + practice_id;
-       
+
 // to get practice info from the id obtained in previous query.
        $.ajax({
          type: "GET",
@@ -206,7 +206,7 @@ function searchButtonClick(pagenumber,isFirstCall){
          url: practice_url
        })
        .success(function(practice_data){
-        //  console.log(practice_data);
+            console.log(practice_data);
             var new_div = $('<div>',{
                class: "cards",
                value: index,
