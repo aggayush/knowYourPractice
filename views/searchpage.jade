@@ -1,0 +1,19 @@
+extends layout_search
+  
+block header
+  div(id='header')
+    div(class='home_text')
+      h1(onclick='goToHome()')=title    
+      select(class='select', name='country_select', onchange='reloadPage()') 
+        
+    div(class='search_bar')
+      select(class='select', name='city_select', onchange='fillNearbyArea()')
+        option(label='Select City', disabled, selected) Select City 
+      
+      select(class='select', name='nearby_select')
+        option(label='Select Locality', disabled=true, selected=true) Select locality
+      input(id='searchbar', class='search_bar_textbox', type='text', name='search_bar_textbox', placeholder='Seach for Practices')
+      input(class="search_bar_button", type="button", name="search_bar_button", onclick="searchButtonClick(0,true)")
+block content
+  div(id='search_content')
+  div(id='pagination_list')

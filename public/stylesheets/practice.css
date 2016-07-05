@@ -1,0 +1,231 @@
+
+.body{
+  margin: 1px;
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+}
+
+#header{
+
+  width: 100%;
+  overflow: auto;
+  /*height: 50px;*/
+  background:#49b1d1;
+}
+
+.home_text h1{
+  margin-left: 5px;
+  margin-top: 0px;
+  float: left;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.home_text div{
+
+  display: inline-block;
+  float: right;
+  width: 80px;
+  height: 20px;
+  margin-top: 10px;
+  margin-right: 10px;
+  text-align: center;
+  vertical-align: middle;
+  border: solid 2px black;
+  cursor: pointer;
+}
+
+.pageblock{
+  margin-top: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  height: 100%;
+  overflow: auto;
+  border: solid 1px black;
+  border-radius: 2px;
+}
+
+.basic_info{
+
+  overflow: auto;
+  border-bottom: solid 1px gray;
+}
+
+
+
+.options_specific_select{
+  height: 30px;
+  border-bottom: solid 1px gray;
+  text-align: center;
+}
+
+.show_specific_select{
+
+  height: 400px;
+  padding-left: 10px;
+  padding-top: 5px;
+
+}
+
+.specific_select{
+
+  float: left;
+  text-align: center;
+  line-height: 30px;
+  vertical-align: middle;
+  width: 33%;
+  height: inherit;
+  display: inline-block;
+  border: dotted 0.5px black;
+}
+
+
+.thumb_image{
+
+  display: inline-block;
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin-left: 5px;
+  margin-top: 5px;
+  border: solid 1px black;
+  margin-bottom: 5px;
+}
+
+.basic_info1{
+
+  float: left;
+  display: inline-block;
+  margin: 2px;
+  padding: 2px;
+  width: 400px;
+}
+
+.basic_info1 h3{
+
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.practice_score{
+
+  float: left;
+  display: inline-block;
+  width: 80px;
+  height: 100%;
+
+}
+
+.practice_score h4{
+  margin-top: 2px;
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+.star-ratings-css {
+  unicode-bidi: bidi-override;
+  color: #c5c5c5;
+  font-size: 15px;
+  height: 100%;
+  width: 80px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0;
+  text-shadow: 0px 0px 0 #a2a2a2;
+}
+.star-ratings-css-top {
+    color: #e7711b;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    display: block;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.star-ratings-css-bottom {
+    padding: 0;
+    display: block;
+    z-index: 0;
+}
+
+.star-not-rated{
+  display: none;
+}
+
+p{
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.specific1{
+
+  height: 400px;
+}
+
+.specific2{
+
+  vertical-align: middle;
+}
+
+.facility_specific{
+
+  height: 400px;
+}
+
+.days{
+
+  float: left;
+  display: inline-block;
+  width: 30%;
+  height: 100px;
+  margin-top: 10px;
+  margin-right: 5px;
+  margin-left: 10px;
+  border: solid 1px gray;
+
+}
+
+.days h3{
+
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.timings_table{
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 1px solid gray;
+}
+
+.timings_table th{
+  border-left: 1px solid gray;
+}
+
+.timings_table th:first-child{
+  border-left: none;
+}
+
+.doc_pic{
+
+  height: 80px;
+  width: 80px;
+  float: left;
+  display: inline-block;
+}
+
+.doc_div_info{
+
+  float: left;
+  width: 200px;
+  height: 80px;
+  display: inline-block;
+}
+
+.doc_div{
+  width: 100%;
+  height: 25%;
+}

@@ -1,0 +1,50 @@
+extends layout_practice
+
+block header
+  div(id='header')
+    div(class='home_text')
+      h1(onclick='goToHome()')=title
+      div(class='return_button', onclick='goBack()') Go Back
+block content
+  div(class='pageblock')
+    div(class='basic_info')
+      img(class='thumb_image')
+      div(class='basic_info1')
+        h3
+        div(class='info_address')
+        div(class='info_email')
+        div(class='info_summary')
+      div(class='practice_score')
+        h4 Score
+        div(class='star-not-rated')
+          *Not Rated*
+        div(class='star-ratings-css')
+          div(class='star-ratings-css-top')
+            span ★
+            span ★
+            span ★
+            span ★
+            span ★
+          div(class='star-ratings-css-bottom')
+            span ★
+            span ★
+            span ★
+            span ★
+            span ★
+    div(class='options_specific_select')
+      div(id='specific_select_1' class='specific_select' onclick='specificSelect(1)') Facilities
+      div(id='specific_select_2' class='specific_select' onclick='specificSelect(2)') Timings
+      div(id='specific_select_3' class='specific_select' onclick='specificSelect(3)') Doctors
+    div(class='show_specific_select')
+      div(class='specific1')
+        ui(class='facility_specific')
+      div(class='specific2')
+        div(class='days')
+        div(class='days')
+        div(class='days')
+        div(class='days')
+        div(class='days')
+        div(class='days')
+      div(class='specific3')
+        
+      
